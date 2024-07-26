@@ -17,3 +17,4 @@ function getName(person) {
   return person.name
 }
 console.log(name1)
+console.log(name1)
