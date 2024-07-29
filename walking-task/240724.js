@@ -30,3 +30,5 @@ console.log (lion);
   lion.age++;
   console.log(lion.age);
   
+  console.log(lion.age);
+  
