@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Search</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-weight: lighter;
+        }
+
+        body {
+            background: #000000;
+            min-height: 100vh;
+            display: block;
+            margin: 8px;
+        }
+
+        h1 {
+            color: white;
+            display: flex;
+            font-size: 12em;
+            margin-block-start: 0.9em;
+            margin-block-end: 0.9em;
+            justify-content: center;
+            font-weight: bold;
+            unicode-bidi: isolate;
+        }
+
+        form {
+            display: flex;
+            margin-top: 0em;
+            unicode-bidi: isolate;
+        }
+
+        .search {
+            color: rgb(163, 163, 163);
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            padding: 150px 0;
+        }
+
+        label {
+            cursor: default;
+        }
+
+        .search label {
+            font-size: 30px;
+        }
+
+        .search input {
+            margin-left: 40px;
+            margin-right: 10px;
+            min-width: 300px;
+        }
+
+        input[type="text" i] {
+            padding-block: 10px;
+            padding-inline: 10px;
+        }
+
+        input {
+            text-rendering: auto;
+            color: #ffffff;
+            display: inline-block;
+            text-align: center;
+            -webkit-rtl-ordering: logical;
+            cursor: text;
+            background-color: #000000;
+            margin: 0em;
+            border-radius: 20px;
+        }
+
+        button {
+            color: rgb(255, 255, 255);
+            display: inline-block;
+            text-align: center;
+            align-items: flex-start;
+            cursor: default;
+            box-sizing: border-box;
+            border-radius: 40px;
+            border-color: #919191;
+            background-color: #000000;
+            margin: 0em;
+            padding-block: 10px;
+            padding-inline: 10px;
+        }
+
+        .card-list {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            justify-content: center;
+        }
+
+        .movie-card {
+            box-shadow: 0 2px 40px rgb(175, 175, 175), 0 3px 6px rgba(255, 255, 255, 0.105);
+            margin: 40px;
+            padding: 20px;
+            width: grid;
+            justify-self: center;
+            background-color: rgb(249, 249, 249);
+            cursor: pointer;
+            -webkit-user-select: none;
+            user-select: none;
+        }
+
+        .movie-title {
+            padding-top: 10px;
+            font-weight: 800;
+            font-size: 20px;
+        }
+        /* 모달 배경 스타일 */
+    .modal {
+        display: none; /* 숨김 */
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgb(0,0,0);
+        background-color: rgba(0,0,0,0.4);
+    }
+
+    /* 모달 콘텐츠 스타일 */
+    .modal-content {
+        background-color: #fefefe;
+        margin: 15% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+        max-width: 500px;
+    }
+
+    /* 닫기 버튼 스타일 */
+    .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+    }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 class="title">TOP MOVIE RATED</h1>
+    </header>  
+    <form class="search" onsubmit="handleSearch(event)">
+        <label>Top Rated Movie Recommendation
+        </label>
+        <input type="text" id="search-input" placeholder="Search for a Movie...">
+        <button type="submit" id="search-btn">SEARCH</button>
+    </form>
+    <section class="card-list" id="movie-container">
+        <!-- 영화 카드들이 여기에 동적으로 추가됩니다. -->
+    </section>
+    <script src="/movie-search/movie.js"></script>
+    <!-- 모달 구조 추가 -->
+    <div id="movie-modal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>영화상세아이디</h2>
+        <p id="modal-content">여기에 영화 상세 아이디가 표시됩니다.</p>
+        </div>
+    </div>
+</body>
+</html>
