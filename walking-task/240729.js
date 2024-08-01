@@ -34,7 +34,7 @@ console.log(arr100);
 // // const testArr = ["윤창식", "최원장", "박가현", "김병연"];
 
 // // testArr.forEach(function (i) {
-// //     console.log(i);    
+// //     console.log(i);
 // // });
 // //윤창식
 // //최원장
@@ -71,8 +71,6 @@ console.log(arr100);
 // // })
 // // //김르탄
 
-
-
 // //*---map= 배열을 가공해 내보냄
 // //// const testArr = ["윤창식", "최원장", "박가현", "김병연"];
 
@@ -81,16 +79,15 @@ console.log(arr100);
 // //여기까지는 forEach랑 똑같아
 
 // // const aa = testArr.forEach();
-// //forEach는 아무것도 안보내  
+// //forEach는 아무것도 안보내
 // //ReferenceError: testArr is not defined
-
 
 // // const testArr = ["윤창식", "최원장", "박가현", "김병연"];
 
 // // const 결과값 = testArr.map(function (i) {
-    
+
 // // });
-// // console.log(결과값); 
+// // console.log(결과값);
 // // //[ undefined, undefined, undefined, undefined ]
 // // //배열 길이만큼 언디파인 출력
 
@@ -99,9 +96,8 @@ console.log(arr100);
 // // const 결과값 = testArr.map(function (i) {
 // //    return i;
 // // });
-// // console.log(결과값); 
+// // console.log(결과값);
 // // //제대로 나옴
-
 
 // // //결과값 리턴에 10배 곱하고 싶다면?
 // // const testArr = [3,1,2];
@@ -109,10 +105,8 @@ console.log(arr100);
 // // const 결과값 = testArr.map(function (i) {
 // //    return i*10;
 // // });
-// // console.log(결과값); 
+// // console.log(결과값);
 // // //[ 30, 10, 20 ]
-
-
 
 // // //원래 있었던 배열을 가공을 할수도 있어
 // // const people = [
@@ -132,21 +126,19 @@ console.log(arr100);
 // //       age: 16,
 // //     },
 // //   ];
-  
-
 
 // //   // 배열 복사
 // //   const newPeople = people.map(function (person) {
-   
+
 // //    /*---원래 있었던 배열 가공을 위해---*/
-   
+
 // //    const newPerson = {
 // //       id: person.id,
 // //       name: person.name,
 // //       age: person.age,
 // //       isAdult: person.age >= 20,
 // //     };
-  
+
 // //     return newPerson;
 // //   });
 // //   console.log(newPeople);
@@ -157,16 +149,12 @@ console.log(arr100);
 //     const 새로운요소 = {
 //         name: 이름,
 //         job: "tutor"
-    
+
 // }
 // return 새로운요소;
 // });
-//    console.log(newArr); 
+//    console.log(newArr);
 // // newArr의 값
-
-
-
-
 
 // //*---filter=배열을 그대로 내보냄
 // //조건을 넣지 않으면 필터로 다 걸러짐
@@ -181,8 +169,6 @@ console.log(arr100);
 
 // // 위 식을 쓰지 않고도 리턴으로 가능
 // // return 숫자>=20;
-
-
 
 // const tutors = [
 //     {
@@ -212,8 +198,7 @@ console.log(arr100);
 //   });
 //   console.log("realTutors => ", realTutors);
 
-
-// //   filter가 리턴한게 배열이기 때문에 
+// //   filter가 리턴한게 배열이기 때문에
 // //   이렇게도 가능
 
 // //   tutors.filter(function (t) {
@@ -224,7 +209,6 @@ console.log(arr100);
 // //   });
 
 // //   forEach()에는 함수를 입힐수 없지만 forEach() 메서드는 배열에 활용이 가능한 메서드
-
 
 const tutors = [
   {
@@ -245,8 +229,15 @@ const tutors = [
   },
 ];
 
-const realTutors=tutors.forEach(function (t) {
+const realTutors = tutors
+  .filter(function (t) {
+    return t.job === "tutor";
+  })
+  .map(function (t) {
+    return t.job === "tutor";
+  })
+  .forEach(function (t) {
     return t.job !== "tutor";
-    });
-  console.log(realTutors);
+  });
+console.log(realTutors);
 //forEach 메서드의 반환값은 언제나 undefined다.
