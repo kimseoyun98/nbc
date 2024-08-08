@@ -8,39 +8,37 @@ button.addEventListener("click", fetchComments);
 // 2. try ...catch를 사용하여 오류 처리를 해주세요.
 //    hint: try {기본적으로 실행해야될 코드} catch (error) {console.error("오류:", error);}
 
-function fetchComments() {
-  async function fetchComments() {
-    try {
-      const response = await fetch(apiUrl);
-      const comments = await response.json();
+async function fetchComments() {
+  try {
+    const response = await fetch(apiUrl);
+    const comments = await response.json();
 
-      // 3. 여기에 slice 메서드를 활용하여 API에서 받아온 결과 배열에서
-      //     0번째부터 9번째 값까지를 복사한 새로운 배열인 slicedData를 만들어주세요.
+    // 3. 여기에 slice 메서드를 활용하여 API에서 받아온 결과 배열에서
+    //     0번째부터 9번째 값까지를 복사한 새로운 배열인 slicedData를 만들어주세요.
 
-      let slicedData = comments.slice(0, 9);
-      const commentsDiv = document.getElementById("comments");
+    let slicedData = comments.slice(0, 9);
+    const commentsDiv = document.getElementById("comments");
 
-      slicedData.forEach((comment) => {
-        let slicedBody =
-          comment.body.length > 40
-            ? comment.body.slice(0, 39) + "..."
-            : comment.body;
+    slicedData.forEach((comment) => {
+      let slicedBody =
+        comment.body.length > 40
+          ? comment.body.slice(0, 39) + "..."
+          : comment.body;
 
-        // 4. 여기에 slice 메서드를 활용하여
-        //    comment의 body의 길이가 40 이상일 때
-        //    0번째부터 39번째 문자를 복사하고 맨 뒤에 "..."을 붙인 문자열을
-        //    slicedBody라는 변수에 할당해주세요.
+      // 4. 여기에 slice 메서드를 활용하여
+      //    comment의 body의 길이가 40 이상일 때
+      //    0번째부터 39번째 문자를 복사하고 맨 뒤에 "..."을 붙인 문자열을
+      //    slicedBody라는 변수에 할당해주세요.
 
-        const commentElement = document.createElement("div");
-        commentElement.innerHTML = `
+      const commentElement = document.createElement("div");
+      commentElement.innerHTML = `
                   <h2>${slicedBody}</h2>
                   <p>사용자 이름: ${comment.name}</p>
                   <p>이메일: ${comment.email}</p>
               `;
-        commentsDiv.appendChild(commentElement);
-      });
-    } catch (error) {
-      console.error("오류:", error);
-    }
+      commentsDiv.appendChild(commentElement);
+    });
+  } catch (error) {
+    console.error("오류:", error);
   }
 }
