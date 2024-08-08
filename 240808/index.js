@@ -16,13 +16,13 @@ async function fetchComments() {
     // 3. 여기에 slice 메서드를 활용하여 API에서 받아온 결과 배열에서
     //     0번째부터 9번째 값까지를 복사한 새로운 배열인 slicedData를 만들어주세요.
 
-    let slicedData = comments.slice(0, 9);
+    let slicedData = comments.slice(0, 10);
     const commentsDiv = document.getElementById("comments");
 
     slicedData.forEach((comment) => {
       let slicedBody =
         comment.body.length > 40
-          ? comment.body.slice(0, 39) + "..."
+          ? comment.body.slice(0, 40) + "..."
           : comment.body;
 
       // 4. 여기에 slice 메서드를 활용하여
